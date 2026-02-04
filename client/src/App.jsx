@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <div className='text-primary'>
-        This is my app
-      </div>
-    </>
-  )
-}
+      <Navbar />
 
-export default App
+      <div>App</div>
+    </>
+  );
+};
+
+export default App;
