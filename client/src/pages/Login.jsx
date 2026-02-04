@@ -15,7 +15,7 @@ const Login = () => {
       loginUser(res.data); // Context me save
       alert("Login successful ✅");
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed ❌");
+      alert(err.response?.data?.message || "Login failed ");
     }
   };
 
