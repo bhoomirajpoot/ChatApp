@@ -13,7 +13,7 @@ const Login = () => {
     try {
       const res = await axios.post("http://localhost:4500/api/auth/login", form);
       loginUser(res.data); // Context me save
-      alert("Login successful ✅");
+      alert("Login successful🙌");
     } catch (err) {
       alert(err.response?.data?.message || "Login failed ");
     }
