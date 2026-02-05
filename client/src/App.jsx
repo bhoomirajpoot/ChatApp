@@ -1,23 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
 import Navbar from "./components/Navbar";
-import { AuthProvider } from "./context/AuthContext";
-import Register from "./pages/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
-import Home from "./pages/Home"; // optional
+import Register from "./pages/Register";
 
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
-      <Router>
+    <>
+      <BrowserRouter>
+        <Toaster />
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+          
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          
         </Routes>
-      </Router>
-    </AuthProvider>
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
