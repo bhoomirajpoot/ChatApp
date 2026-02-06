@@ -12,6 +12,25 @@ const Login = () => {
 
   const handleGoogleSuccess = async (userData) => {
     console.log("Google Login Data", userData);
+    setLoading(true);
+    try {
+      const res = await api.post("/auth/googleLogin", userData);
+
+      toast.success(res.data.message);
+
+      // optional: store user or token
+      sessionStorage.setItem("AppUser", JSON.stringify(res.data.data));
+
+      handleClearForm();
+
+      // simple redirect
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const GoogleLogin = () => {
